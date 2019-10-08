@@ -108,7 +108,10 @@ var ui = {
             'tip / second': 1000,
             'tip / 2 seconds': 2000,
             'tip / 5 seconds': 5000,
-            'tip / 10 seconds': 10000
+            'tip / 10 seconds': 10000,
+            'tip / 15 seconds': 15000,
+            'tip / 30 seconds': 30000,
+            'tip / 60 seconds': 60000,
         };
         for (var label in options) {
             var speed = parseInt(options[label]);
