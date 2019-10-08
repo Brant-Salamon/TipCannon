@@ -130,18 +130,13 @@ var ui = {
             '<i class="icon-play"></i>Fire!'
         );
 
-        var $donate = $('<span>')
-            .addClass('tipcannon-donate')
-            .html("<i class=\"icon-twitter\"></i>&nbsp;<a href=\"http://www.twitter.com/tipcannon_club\">TipCannon goes social</a>");
-
         function formRow($label, $input) {
             return $('<div>', {class: 'form-row'}).append($label).append($input);
         }
         $form
             .append( formRow($tokenLabel, this.$tokens) )
             .append( formRow($speedLabel, this.$speed) )
-            .append(this.$fireBtn)
-            .append($donate);
+            .append(this.$fireBtn);
 
         return $form;
     },
