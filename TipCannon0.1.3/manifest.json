@@ -1,0 +1,30 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+
+  "name": "Tip Cannon",
+  "description": "A clever tipping tool for erotic webcam sites.",
+  "version": "0.1.3",
+
+  "content_scripts": [
+    {
+      "matches": ["https://chaturbate.com/*", "https://*.chaturbate.com/*"],
+      "js": [
+        "./vendor/jquery-2.2.1.min.js",
+        "./tipcannon.js",
+        "./content-scripts/chaturbate/main.js",
+        "./content-scripts/chaturbate/ui.js"
+      ],
+
+      "css": [
+        "./content-scripts/chaturbate/style.css",
+        "./vendor/fontello/css/fontello.css"
+      ]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "vendor/fontello/font/fontello.ttf"
+  ]
+}
