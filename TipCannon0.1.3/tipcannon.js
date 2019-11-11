@@ -55,4 +55,9 @@ $(document).ready(function() {
         clearInterval(tipInterval);
         log('stop()');
     }
+	
 });
+
+function setTipCannonDebug(state) {
+	__DEBUG__ = state;
+}
