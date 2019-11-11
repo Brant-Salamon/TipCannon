@@ -10,7 +10,7 @@ var ui = {
     $speed: {},
 
     init: function() {
-        this.$origTipBtn = $('div.green_button_tip');
+        this.$origTipBtn = $('div#Zr span[title]');
 
         this._injectTipCannonBtn();
         this._injectTooltip();
@@ -36,7 +36,7 @@ var ui = {
     },
 
     _createTipCannonBtn: function() {
-        var $container = $('<div>', {
+        var $container = $('<span>', {
             id: 'tipcannon-btn-container'
         });
 
@@ -109,9 +109,9 @@ var ui = {
             'tip / 2 seconds': 2000,
             'tip / 5 seconds': 5000,
             'tip / 10 seconds': 10000,
-            'tip / 15 seconds': 15000,
+			'tip / 15 seconds': 15000,
             'tip / 30 seconds': 30000,
-            'tip / 60 seconds': 60000,
+            'tip / 60 seconds': 60000
         };
         for (var label in options) {
             var speed = parseInt(options[label]);
@@ -130,13 +130,18 @@ var ui = {
             '<i class="icon-play"></i>Fire!'
         );
 
+        var $donate = $('<span>')
+            .addClass('tipcannon-donate')
+            .html("<i class=\"icon-twitter\"></i>&nbsp;<a href=\"http://www.twitter.com/tipcannon_club\">TipCannon goes social</a>");
+
         function formRow($label, $input) {
             return $('<div>', {class: 'form-row'}).append($label).append($input);
         }
         $form
             .append( formRow($tokenLabel, this.$tokens) )
             .append( formRow($speedLabel, this.$speed) )
-            .append(this.$fireBtn);
+            .append(this.$fireBtn)
+            .append($donate);
 
         return $form;
     },
