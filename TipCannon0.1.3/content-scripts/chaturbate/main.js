@@ -1,10 +1,12 @@
 var tipInterval = 0;
 
 function getAvailableTokens() {
-    return parseInt($('div.tokens.tokencount').html());
+    //return parseInt($('div.tokens.tokencount').html());
+    return parseInt($('#Zr>div:nth-child(7)>div>div:nth-child(1)>span:nth-child(2)').html());
 }
 function setAvailableTokens(amount) {
-    $('div.tokens.tokencount').html(amount);
+	//$('div.tokens.tokencount').html(amount);
+	$('#Zr>div:nth-child(7)>div>div:nth-child(1)>span:nth-child(2)').html(amount)
 }
 
 function getModelUsername() {
@@ -19,24 +21,23 @@ function getModelUsername() {
 }
 
 function getRoomType() {
-    return $('input#id_tip_room_type').val();
-}
-
-function getTipV() {
-    return $('input#id_v').val();
+    return "public";
 }
 
 function getCsrfToken() {
     return $('input[name=csrfmiddlewaretoken]').val();
 }
-
+/*
+https://chaturbate.com/tipping/send_tip/modelname/
+tip_amount=25&message=&source=theater&tip_room_type=public&csrfmiddlewaretoken=lkjhklj
+*/
 function tip(tipAmount) {
     var data = {
         csrfmiddlewaretoken: getCsrfToken(),
         tip_amount: tipAmount,
         message: '',
         tip_room_type: getRoomType(),
-        tip_v: getTipV()
+		source: 'theatre'
     };
     log(data);
 
