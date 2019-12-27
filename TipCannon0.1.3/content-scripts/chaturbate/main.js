@@ -1,12 +1,10 @@
 var tipInterval = 0;
 
 function getAvailableTokens() {
-    //return parseInt($('div.tokens.tokencount').html());
-    return parseInt($('#Zr>div:nth-child(7)>div>div:nth-child(1)>span:nth-child(2)').html());
+    return parseInt($('span.tokencount').html());
 }
 function setAvailableTokens(amount) {
-	//$('div.tokens.tokencount').html(amount);
-	$('#Zr>div:nth-child(7)>div>div:nth-child(1)>span:nth-child(2)').html(amount)
+	$('span.tokencount').html(amount)
 }
 
 function getModelUsername() {
