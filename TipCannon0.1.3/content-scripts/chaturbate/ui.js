@@ -10,7 +10,7 @@ var ui = {
     $speed: {},
 
     init: function() {
-        this.$origTipBtn = $('div#Zr span[title]');
+        this.$origTipBtn = $("span[title='SEND TIP']");
 
         this._injectTipCannonBtn();
         this._injectTooltip();
@@ -39,6 +39,11 @@ var ui = {
         var $container = $('<span>', {
             id: 'tipcannon-btn-container'
         });
+		$($container)
+			.css("position", "absolute")
+			.css("margin-left", "10px")
+			.css("margin-top", "11px")
+			;
 
         var $button = $('<a>', {
             id: 'tipcannon-btn',
@@ -130,18 +135,13 @@ var ui = {
             '<i class="icon-play"></i>Fire!'
         );
 
-        var $donate = $('<span>')
-            .addClass('tipcannon-donate')
-            .html("<i class=\"icon-twitter\"></i>&nbsp;<a href=\"http://www.twitter.com/tipcannon_club\">TipCannon goes social</a>");
-
         function formRow($label, $input) {
             return $('<div>', {class: 'form-row'}).append($label).append($input);
         }
         $form
             .append( formRow($tokenLabel, this.$tokens) )
             .append( formRow($speedLabel, this.$speed) )
-            .append(this.$fireBtn)
-            .append($donate);
+            .append(this.$fireBtn);
 
         return $form;
     },
